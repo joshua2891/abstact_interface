@@ -1,6 +1,6 @@
 <?php
 
-abstract class queen
+abstract class Queen
 {
     public $conn;
     public $servername="localhost";
@@ -12,23 +12,24 @@ abstract class queen
     {
        
         $this->conn= new mysqli($this->servername,$this->username,$this->password);
-        
+
     }
-       
-    abstract public function intro(): string;
-
-
-
+    abstract public function dbname(): string;
 }
 
-class database extends Queen
+class Datab extends Queen
 {
-    public function dbname(): string;
+    public function dbname(): string
     {
-        $db= "CREATE DATABASE IF NOT EXISTS $this->dbname";
+        $db = "CREATE DATABASE IF NOT EXISTS $this->dbname";
         return $this->conn->query($db);
+
     }
+
 }
 
-$d= new Queen();
+$d= new Datab();
 $d->dbname();
+
+
+?>
