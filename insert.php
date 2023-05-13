@@ -14,7 +14,13 @@ abstract class queen
         $this->conn= new mysqli($this->servername,$this->username,$this->password);
        
     abstract public function intro(): string;
+
+    }
+
+
+    
 }
+
 class database extends Queen
 {
     public function dbname(): string;
