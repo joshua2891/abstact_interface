@@ -10,11 +10,9 @@ abstract class queen
 
     public function __construct()
     {
-        $this->name=$name;
+       
         $this->conn= new mysqli($this->servername,$this->username,$this->password);
-        $db=("CREATE DATABASE IF NOT EXISTS $this->dbname")
-        $this->conn->query($db);
-    }
+       
     abstract public function intro(): string;
 }
 class database extends Queen
