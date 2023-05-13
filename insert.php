@@ -17,3 +17,14 @@ abstract class queen
     }
     abstract public function intro(): string;
 }
+class database extends Queen
+{
+    public function dbname(): string;
+    {
+        $db= "CREATE DATABASE IF NOT EXISTS $this->dbname";
+        return $this->conn->query($db);
+    }
+}
+
+$d= new Queen();
+$d->dbname();
